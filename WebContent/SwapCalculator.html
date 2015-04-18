@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+
+<SCRIPT LANGUAGE="JavaScript">
+
+
+
+<!-- Begin
+function round(num) {
+amount = Math.round(num*Math.pow(10,2))/Math.pow(10,2);
+amount -= 0;
+// .99 cent format courtsey of Martin Webb
+return (amount == Math.floor(amount)) ? amount + '.00' : ( (amount*10 == Math.floor(amount*10)) ? amount + '0' : amount);
+}
+
+function dectable() {
+windowprops = 'personalbar=no,toolbar=no,' +
+'status=no,scrollbars=yes,location=no,' +
+'resizable=yes,menubar=no,width=600,height=500';
+decimalWin=window.open('', 'table', windowprops);
+
+
+decimalWin.document.open();
+decimalWin.document.writeln(text);
+decimalWin.document.close();
+}
+
+function stocks(form) {
+	
+	
+pipvalue  = form.pipvalue.value;
+marketrate = form.marketrate.value;
+lotsize = form.lotsize.value;
+longswap = form.longswap.value;
+shortswap = form.shortswap.value;
+
+swapresult = ((pipvalue/marketrate) * lotsize);
+
+buy = (swapresult * 1 * shortswap);
+sell = ( swapresult * longswap * 1 );
+
+form.pipvalueresult1.value  = swapresult;
+form.buyswap.value = buy;
+form.sellswap.value = sell;
+
+
+
+
+}
+//  End -->
+</script>
+
+</head>
+<body>
+<center>
+<form name='stockform'>
+<table border=1>
+<tr>
+<td align=center><font face="arial, helvetica" size="-1">Pip Value</td>
+<td><input type=text name=pipvalue size=11></td>
+</tr>
+<tr>
+<td align=center><font face="arial, helvetica" size="-1">Symbol Pair</td>
+<td><input type=text name=symbolpair size=11></td>
+</tr>
+<tr>
+<td align=center><font face="arial, helvetica" size="-1">Lot Size</td>
+<td><input type=text name=lotsize size=8> *</td>
+</tr>
+<tr>
+<td align=center><font face="arial, helvetica" size="-1">Market Rate</td>
+<td><input type=text name=marketrate size=8> *</td>
+</tr>
+
+<tr>
+<td align=center><font face="arial, helvetica" size="-1">Swap Long Rate</td>
+<td><input type=text name=longswap size=11></td>
+</tr>
+<tr>
+<td align=center><font face="arial, helvetica" size="-1">Swap Short Rate</td>
+<td><input type=text name=shortswap size=11></td>
+</tr>
+<tr>
+<td colspan=2 align=center>
+<input type=button name=calc value="Calculate swap rate" onClick="javascript:stocks(this.form)">
+</td>
+</tr>
+<tr>
+<tr>
+<td align=center><font face="arial, helvetica" size="-1">Pip Value Result</td>
+<td align=center><input type=text name=pipvalueresult1 size=11></td>
+</tr>
+</tr>
+<tr>
+<td align=center><font face="arial, helvetica" size="-1">Buy Swap Long Rate</font></td>
+<td align=center><input type=text name=buyswap size=11></td>
+</tr>
+<tr>
+<td align=center><font face="arial, helvetica" size="-1">Sell Swap Short Rate</font></td>
+<td align=center><input type=text name=sellswap size=11></td>
+</tr>
+</table>
+<p>
+<font face="arial, helvetica" size="-2">
+<p>The calculation is performed as follows:			
+			
+Pip value = (one pip / exchange rate) * lot size			
+			
+Example:			
+			
+Trading 1 lot of EUR/USD with an account denominated in EUR.			
+One pip = 0.0001			
+Exchange rate = 1.35554			
+0.00001/1.35554 = 7.37713			
+7.37713 * 1 = 7.37713			
+Each pip is worth €7.38			
+</p>			
+</font>
+</form>
+</center>
+</body>
+</html>
